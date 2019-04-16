@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript för webbutveckling (ISGB15) 5hp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="jumbotron text-center">
+      <h1>Laboration 1, JavaScript</h1>
+      <h4>Uppgift från Karlstad Universitet 2017</h4>
+    </div>
+
+    <div class="container-fluid">
+
+      <p class="h4">Slumpa nya nummer mellan 1-1000.</p>
+      <div class="table-responsive">
+
+
+        <script type="text/javascript">
+
+          "use strict";
+          function tabell(){ // skapar en funktion som gör en tabell
+            document.write("<table class='table table-bordered text-center table-responsive'>");
+                var numbers=[]; //deklarerar en array
+                var j=0;
+                var i = 0;
+
+                for(var i=0; i<100; i++){     //slumpar 100 tal till en array-plats som börjar på plats 0 och ökar med 1 varje varv i loopen men bara så länge som i är minde än 100, alltså 100 tal
+                  var rand = Math.floor(Math.random() * 1000) + 1; // generar slumptal mellan 1-1000
+                    numbers[i]=rand; // array plats i tilldelas ett slumptal
+
+                  }
+              numbers.sort(function(a,b){
+               return a-b; // sorterar arrayen genom att jämföra två tal och se vilket som ska ligga först
+             }); //tagen från föreläsning 2
+
+                  for ( var r=0;r<10;r++){  // loop som skapar själva tabellen
+                      document.writeln("<tr>"); // börjar med att göra en tabellrad
+                    for ( var c=0;c<10;c++){ // skriver ut 10 tabellceller för varje tabellrad
+                  document.writeln("<td>"+numbers[j]+"</td>"); // varje cell ska innehålla ett slumptal som liggeer på plats j
+                    j++; // j ökar ett för varje gång som den skrivs ut
+                  }
+
+                  document.writeln("</tr>"); // för varje gång som r ör stärre är 10 görs en ny rad
+                }
+
+                  document.writeln("</table>"); // avslutar tabellen
+          }
+          tabell(); // anropar funktionen ovan, utan anrop av funktionen skrivs inget ut
+          </script>
+      </div>
+      <a href="" class="btn btn-primary" role="button">Kör igen</a>
+    </div>
+
+  </body>
+</html>
